@@ -3,6 +3,7 @@
 import List from "@/app/components/List";
 import { useState } from "react";
 import { motion } from "framer-motion";
+// @ts-ignore
 import useSound from "use-sound";
 
 export default function Home() {
