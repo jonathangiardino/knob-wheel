@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(var(--foreground-rgb), 0.8),
+    rgba(var(--foreground-rgb), 1)
+  );
+}
+
+.list {
+  position: fixed;
+  right: -8%;
+  width: 360px;
+  height: 360px;
+  border-radius: 100%;
+  transform-origin: right;
+  outline: 2px solid transparent;
+}
+
+.list-item {
+  min-width: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform-origin: 200%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-item-content {
+  width: auto;
+  height: 100%;
+  text-align: right;
+  background-color: black;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 36px;
+  transition: background-color, outline 0.2s var(--ease-out-cubic);
+}
+
+.list-item-content[aria-selected="true"] {
+  background-color: orangered;
+  outline: 2px solid white;
+}
+
+.indicator {
+  transform: translateX(-360%);
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .indicator {
+    transform: translateX(-1000%);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
